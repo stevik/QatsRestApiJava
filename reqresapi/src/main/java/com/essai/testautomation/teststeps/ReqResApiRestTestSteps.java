@@ -22,8 +22,8 @@ public class ReqResApiRestTestSteps {
         return ObjectJsonMapper.deserializeJson(ReqResApi.getUsers(page), UsersResponse.class);
     }
 
-    public UserResponse postUserRequest(UserRequest request) {
-        return ObjectJsonMapper.deserializeJson(ReqResApi.postUser(request), UserResponse.class);
+    public UserResponse postUserRequest(UserRequest request, Long maxRespTimeInMillis) {
+        return ObjectJsonMapper.deserializeJson(ReqResApi.postUser(request, maxRespTimeInMillis), UserResponse.class);
     }
 
     public void verifyUsersResponse(UsersResponse actualResponse, int expectedTotalRecords, Map<Integer, String> expectedNames) {
@@ -45,7 +45,7 @@ public class ReqResApiRestTestSteps {
         }
     }
 
-    public static void verifyPostUserResponse(UserRequest request, UserResponse actualResponse) {
+    public void verifyPostUserResponse(UserRequest request, UserResponse actualResponse) {
 
         final int expectedYear = Year.now().getValue();
         assertAll("Verification of POST UserResponse",

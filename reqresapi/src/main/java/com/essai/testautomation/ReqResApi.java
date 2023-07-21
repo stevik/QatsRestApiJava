@@ -8,6 +8,7 @@ import org.apache.http.HttpStatus;
 
 import static com.essai.testautomation.utils.GlobalConstants.QUERY_PARAM_PAGE;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.lessThan;
 
 public class ReqResApi {
 
@@ -26,7 +27,7 @@ public class ReqResApi {
                 .extract().response();
     }
 
-    public static Response postUser(UserRequest request) {
+    public static Response postUser(UserRequest request, Long maxRespTimeInMillis) {
 
         return given()
                 .baseUri(URL)
@@ -35,6 +36,7 @@ public class ReqResApi {
                 .when()
                 .post(USERS_URL)
                 .then()
+                .time(lessThan(maxRespTimeInMillis))
                 .statusCode(HttpStatus.SC_CREATED)
                 .log().ifValidationFails()
                 .extract().response();

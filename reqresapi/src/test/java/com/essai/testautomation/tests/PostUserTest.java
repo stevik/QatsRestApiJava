@@ -19,7 +19,7 @@ public class PostUserTest {
         UserRequest request = PostUserRequestHelper.createPostUserRequest(name, job);
 
         // execute
-        UserResponse response = REQRESAPI_REST_TEST_STEPS.postUserRequest(request);
+        UserResponse response = REQRESAPI_REST_TEST_STEPS.postUserRequest(request, 2000L);
 
         // verify
         REQRESAPI_REST_TEST_STEPS.verifyPostUserResponse(request, response);
