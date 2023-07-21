@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PostUserRequest {
+public class UserRequest {
     private String name;
     private String job;
 }

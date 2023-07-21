@@ -3,8 +3,8 @@ package com.essai.testautomation.teststeps;
 import com.essai.testautomation.ReqResApi;
 import com.essai.testautomation.model.rest.getusers.DataItem;
 import com.essai.testautomation.model.rest.getusers.UsersResponse;
-import com.essai.testautomation.model.rest.postuser.PostUserRequest;
-import com.essai.testautomation.model.rest.postuser.PostUserResponse;
+import com.essai.testautomation.model.rest.postuser.UserRequest;
+import com.essai.testautomation.model.rest.postuser.UserResponse;
 import com.essai.testautomation.utils.ObjectJsonMapper;
 
 import java.time.Year;
@@ -22,8 +22,8 @@ public class ReqResApiRestTestSteps {
         return ObjectJsonMapper.deserializeJson(ReqResApi.getUsers(page), UsersResponse.class);
     }
 
-    public PostUserResponse postUserRequest(PostUserRequest request) {
-        return ObjectJsonMapper.deserializeJson(ReqResApi.postUser(request), PostUserResponse.class);
+    public UserResponse postUserRequest(UserRequest request) {
+        return ObjectJsonMapper.deserializeJson(ReqResApi.postUser(request), UserResponse.class);
     }
 
     public void verifyUsersResponse(UsersResponse actualResponse, int expectedTotalRecords, Map<Integer, String> expectedNames) {
@@ -45,7 +45,7 @@ public class ReqResApiRestTestSteps {
         }
     }
 
-    public static void verifyPostUserResponse(PostUserRequest request, PostUserResponse actualResponse) {
+    public static void verifyPostUserResponse(UserRequest request, UserResponse actualResponse) {
 
         final int expectedYear = Year.now().getValue();
         assertAll("Verification of POST UserResponse",

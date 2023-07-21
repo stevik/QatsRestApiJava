@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PostUserResponse {
+public class UserResponse {
     private String name;
     private String job;
     private int id;

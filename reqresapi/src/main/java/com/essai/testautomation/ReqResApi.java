@@ -1,6 +1,6 @@
 package com.essai.testautomation;
 
-import com.essai.testautomation.model.rest.postuser.PostUserRequest;
+import com.essai.testautomation.model.rest.postuser.UserRequest;
 import com.essai.testautomation.utils.PropertyStore;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -26,7 +26,7 @@ public class ReqResApi {
                 .extract().response();
     }
 
-    public static Response postUser(PostUserRequest request) {
+    public static Response postUser(UserRequest request) {
 
         return given()
                 .baseUri(URL)

@@ -1,6 +1,6 @@
 package com.essai.testautomation.helpers;
 
-import com.essai.testautomation.model.rest.postuser.PostUserRequest;
+import com.essai.testautomation.model.rest.postuser.UserRequest;
 
 public class PostUserRequestHelper {
 
@@ -8,8 +8,8 @@ public class PostUserRequestHelper {
 
     }
 
-    public static PostUserRequest createPostUserRequest(String name, String job) {
-        return PostUserRequest.builder()
+    public static UserRequest createPostUserRequest(String name, String job) {
+        return UserRequest.builder()
                 .name(name)
                 .job(job)
                 .build();
